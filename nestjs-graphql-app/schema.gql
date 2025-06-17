@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Car {
+  _id: ID!
+  model: String!
+  name: String!
+}
+
+input CreateCarInput {
+  model: String!
+  name: String!
+}
+
+input CreateDriverInput {
+  age: Int!
+  name: String!
+}
+
+type Driver {
+  _id: ID!
+  age: Float!
+  cars: [Car!]!
+  name: String!
+}
+
+type Mutation {
+  addCarToDriver(carId: ID!, driverId: ID!): Driver!
+  createCar(createCarInput: CreateCarInput!): Car!
+  createDriver(createDriverInput: CreateDriverInput!): Driver!
+  removeCar(_id: ID!): Car
+  removeDriver(_id: ID!): Driver
+  updateCar(updateCarInput: UpdateCarInput!): Car
+  updateDriver(updateDriverInput: UpdateDriverInput!): Driver
+}
+
+type Query {
+  car(_id: ID!): Car
+  cars: [Car!]!
+  driver(_id: ID!): Driver
+  drivers: [Driver!]!
+}
+
+input UpdateCarInput {
+  _id: String!
+  model: String
+  name: String
+}
+
+input UpdateDriverInput {
+  _id: String!
+  age: Int
+  name: String
+}
